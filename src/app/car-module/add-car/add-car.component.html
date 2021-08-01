@@ -12,7 +12,6 @@
                 <ng-container *ngIf="form.get('brand')?.touched && form.get('brand')?.errors?.required">
                     brand is required!
                 </ng-container>
-
             </div>
         </div>
         <div class="add-form__group">
@@ -48,6 +47,9 @@
                 <ng-container *ngIf="form.get('price')?.touched && form.get('price')?.errors?.required">
                     price is required!
                 </ng-container>
+                <ng-container *ngIf="form.get('price')?.touched && form.get('price')?.errors?.min">
+                    price must be at least 1!
+                </ng-container>
             </div>
         </div>
 
@@ -57,7 +59,10 @@
                 formControlName="imageUrl">
             <div class="add-form__error">
                 <ng-container *ngIf="form.get('imageUrl')?.touched && form.get('imageUrl')?.errors?.required">
-                    imageUrl is required!
+                    image url is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('imageUrl')?.touched && form.get('imageUrl')?.errors?.pattern">
+                    image url must be valid!
                 </ng-container>
             </div>
         </div>
@@ -69,6 +74,9 @@
             <div class="add-form__error">
                 <ng-container *ngIf="form.get('description')?.touched && form.get('description')?.errors?.required">
                     description is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('description')?.touched && form.get('description')?.errors?.minlength">
+                    description must be at least 5 characters!
                 </ng-container>
             </div>
         </div>

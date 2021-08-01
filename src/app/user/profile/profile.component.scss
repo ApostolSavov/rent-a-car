@@ -1,0 +1,109 @@
+:host {
+  width: 100%;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+
+  &__container {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  &__info {
+    padding: 3rem 2rem;
+    font-size: 2.4rem;
+    font-weight: 600;
+    background-color: rgba($color: #e2e2e2, $alpha: 0.8);
+    border-radius: 1rem;
+  }
+
+  &__info-message {
+    line-height: 4rem;
+  }
+
+  &__info-detail {
+    display: inline-block;
+    margin-top: 2rem;
+  }
+
+  &__info-name {
+  }
+
+  &__rented-heading {
+    font-size: 3rem;
+    font-weight: 500;
+    color: rgba($color: #171717, $alpha: 1);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__rented {
+  }
+
+  &__rented-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__rented-card-link {
+  }
+
+  &__rented-card-image-container {
+    max-width: 50rem;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  &__rented-card-image {
+    width: 100%;
+  }
+
+  &__rented-card-body {
+  }
+
+  &__rented-card-details-container {
+    background-color: rgba($color: #e2e2e2, $alpha: 0.8);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  &__rented-card-detail {
+    .detail-1 {
+    }
+
+    .detail-2 {
+    }
+
+    .detail-3 {
+    }
+
+    .detail-4 {
+    }
+  }
+
+  &__suggestion {
+    font-size: 3rem;
+    font-weight: 500;
+    color: rgba($color: #171717, $alpha: 1);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__offered {
+    background-color: rgba($color: #dcdcdc, $alpha: 0.8);
+    border-radius: 1rem;
+    grid-column: 1 / span 2;
+  }
+}

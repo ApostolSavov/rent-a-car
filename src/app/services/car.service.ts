@@ -18,6 +18,10 @@ export class CarService {
     return this.http.get<string[]>(`${apiURL}/util/brands`);
   }
 
+  getUserCars(userId: string): Observable<string[]> {
+    return this.http.get<string[]>(`${apiURL}/user/${userId}`);
+  }
+
   loadCars(): Observable<ICar[]> {
     return this.http.get<ICar[]>(`${apiURL}/data`, {
       withCredentials: false,

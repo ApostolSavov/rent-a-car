@@ -48,6 +48,9 @@
     }
 
     &-image-container {
+      border-radius: 1rem;
+      max-height: 23rem;
+      overflow: hidden;
     }
 
     &-image {

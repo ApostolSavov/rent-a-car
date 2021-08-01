@@ -1,1 +1,78 @@
-<p>profile works!</p>
+<div class="profile__container">
+    <div class="profile">
+        <div class="profile__info">
+            <p class="profile__info-message">Hello there, {{user?.name}}!</p>
+            <hr style="margin: 1rem 0 1rem;">
+            <p class="profile__info-message">
+                In this section you can easily see what cars you
+                have offered or whether you currently have rented a vehicle</p>
+            <span class="profile__info-detail">Your email address:</span>
+            <div class="profile__info-name">{{user?.email}}</div>
+        </div>
+
+        <div class="profile__rented">
+            <ng-container *ngIf="user?.rentedId">
+                <div class="profile__rented-card">
+                    <h2 class="profile__rented-heading">currently rented car</h2>
+                    <a [routerLink]="['/cars', rented?._id]" class="profile__rented-card-link">
+                        <div class="profile__rented-card-image-container">
+                            <img class="profile__rented-card-image" src={{rented?.imageUrl}} alt="car">
+                        </div>
+                    </a>
+                    <div class="profile__rented-card-body">
+                        <div class="profile__rented-card-details-container">
+                            <div class="profile__rented-card-detail detail-1">
+                                brand: {{rented?.brand}}
+                            </div>
+                            <div class="profile__rented-card-detail detail-2">
+                                model: {{rented?.model}}
+                            </div>
+                            <div class="profile__rented-card-detail detail-3">
+                                year: {{rented?.year}}
+                            </div>
+                            <div class="profile__rented-card-detail detail-4">
+                                price: {{rented?.price}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!user?.rentedId">
+                <div class="profile__suggestion">
+                    Haven't rented a car yet? You can check the available ones <a href="#" routerLink="/cars">here</a>
+                </div>
+            </ng-container>
+        </div>
+        <div class="profile__offered">
+            <ng-container *ngIf="user?.offered">
+                <div class="profile__offered-car-card" *ngFor="let offeredCar of offered">
+                    <h2 class="profile__offered-car-heading">currently offered cars</h2>
+                    <a [routerLink]="['/cars', offeredCar?._id]" class="profile__offered-car-card-link">
+                        <div class="profile__offered-car-card-image-container">
+                            <img class="profile__offered-car-card-image" src={{offeredCar?.imageUrl}} alt="car">
+                        </div>
+                    </a>
+                    <div class="profile__offered-car-card-body">
+                        <div class="profile__offered-car-card-details-container">
+                            <div class="profile__offered-car-card-detail detail-1">
+                                brand: {{offeredCar?.brand}}
+                            </div>
+                            <div class="profile__offered-car-card-detail detail-2">
+                                model: {{offeredCar?.model}}
+                            </div>
+                            <div class="profile__offered-car-card-detail detail-3">
+                                year: {{offeredCar?.year}}
+                            </div>
+                            <div class="profile__offered-car-card-detail detail-4">
+                                price: {{offeredCar?.price}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>
