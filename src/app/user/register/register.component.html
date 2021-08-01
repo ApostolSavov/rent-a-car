@@ -1,0 +1,63 @@
+<div class="register-form__container">
+    <form class="register-form" [formGroup]="form" (ngSubmit)="onRegister()">
+        <h2 class="register-form__heading">Registration Form</h2>
+
+        <div class="register-form__group">
+            <label class="register-form__label" for="name">name</label>
+            <input class="register-form__input" type="text" name="name" id="name" placeholder="Ivan"
+                formControlName="name">
+            <div class="register-form__error">
+                <ng-container *ngIf="form.get('name')?.touched && form.get('name')?.errors?.required">
+                    name is required!
+                </ng-container>
+
+            </div>
+        </div>
+        <div class="register-form__group">
+            <label class="register-form__label" for="email">email</label>
+            <input class="register-form__input" type="email" name="email" id="email" placeholder="ivan@gmail.com"
+                formControlName="email">
+            <div class="register-form__error">
+                <ng-container *ngIf="form.get('email')?.touched && form.get('email')?.errors?.required">
+                    email is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('email')?.touched && form.get('email')?.errors?.email">
+                    email is not valid!
+                </ng-container>
+            </div>
+        </div>
+
+
+        <div class="register-form__group">
+            <label class="register-form__label" for="password">password</label>
+            <input class="register-form__input" type="password" name="password" id="password" placeholder="******"
+                formControlName="password">
+            <div class="register-form__error">
+                <ng-container *ngIf="form.get('password')?.touched && form.get('password')?.errors?.required">
+                    password is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('password')?.touched && form.get('password')?.errors?.minlength">
+                    password must be at least 4 characters!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="register-form__group">
+            <label class="register-form__label" for="rePassword">confirm password</label>
+            <input class="register-form__input" type="password" name="rePassword" id="rePassword" placeholder="******"
+                formControlName="rePass">
+            <div class="register-form__error">
+                <ng-container
+                    *ngIf="form.get('rePass')?.touched && form.get('rePass')?.errors?.confirmPasswordValidator">
+                    repeat password does not match password!
+                </ng-container>
+            </div>
+        </div>
+
+        <button class="register-form__button" [disabled]="form.invalid">Create Account</button>
+        <div class="register-form__question">
+            Have an account?
+            <a class="register-form__link" routerLink="/user/login">Log In</a>
+        </div>
+    </form>
+</div>

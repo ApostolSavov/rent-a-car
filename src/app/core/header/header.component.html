@@ -1,0 +1,26 @@
+<header class="header">
+    <div class="header__logo-container">
+        <a href="#" routerLink="/" class="header__logo-link">
+            <img class="header__logo" src="../../../assets/car-logo.png" alt="car-logo">
+            <span class="header__logo-text">rent-a-car</span>
+        </a>
+    </div>
+    <div class="header__nav-container">
+        <nav class="header__nav">
+            <ul class="header__nav-list" *ngIf="!isLogged">
+                <li class="header__nav-item"><a class="header__nav-link" href="#" routerLink="/cars">cars</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#"
+                        routerLink="/user/register">register</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#" routerLink="/user/login">login</a>
+                </li>
+            </ul>
+            <ul class="header__nav-list" *ngIf="isLogged">
+                <li class="header__nav-item"><a class="header__nav-link" href="#" routerLink="/cars">cars</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#" routerLink="/add-car">add</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#" routerLink="/user/profile">profile</a>
+                </li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#" (click)="onLogout()">logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

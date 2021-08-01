@@ -1,0 +1,30 @@
+<div class="car-list__container">
+    <div class="car-list" *ngIf="carList">
+        <div class="car-list__card" *ngFor="let car of carList">
+
+            <a [routerLink]="['/cars', car._id]" class="car-list__card-link">
+                <div class="car-list__card-image-container">
+                    <img class="car-list__card-image" src={{car.imageUrl}} alt="car">
+                </div>
+            </a>
+            <div class="car-list__card-body">
+                <div class="car-list__card-details-container">
+                    <div class="car-list__card-detail detail-1">
+                        brand: {{car.brand}}
+                    </div>
+                    <div class="car-list__card-detail detail-2">
+                        model: {{car.model}}
+                    </div>
+                    <div class="car-list__card-detail detail-3">
+                        year: {{car.year}}
+                    </div>
+                    <div class="car-list__card-detail detail-4">
+                        price: {{car.price}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="car-list__loader" *ngIf="!carList">Loading....</div>
+</div>

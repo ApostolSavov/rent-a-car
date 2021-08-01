@@ -1,0 +1,69 @@
+<div class="car-details__container" *ngIf="car">
+    <div class="car-details">
+        <div class="car-details__image-container">
+            <img class="car-details__image" src={{car.imageUrl}} alt="car">
+        </div>
+        <div class="car-details__info-container">
+            <div class="car-details__info">
+                <strong class="util-white-space">brand: </strong>
+                {{car.brand}}
+            </div>
+            <div class="car-details__info">
+                <strong class="util-white-space">model: </strong>
+                {{car.model}}
+            </div>
+            <div class="car-details__info">
+                <strong class="util-white-space">year: </strong>
+                {{car.year}}
+            </div>
+            <div class="car-details__info">
+                <strong class="util-white-space">price: </strong>
+                {{car.price}}
+            </div>
+            <div class="car-details__info span-2-col">
+                <strong class="util-white-space">description: </strong>
+            </div>
+            <div class="car-details__info span-2-col">
+                {{car.description}}
+            </div>
+
+        </div>
+        <div class="car-details__actions-container">
+            <ng-container *ngIf="isLogged">
+                <ng-container *ngIf="car.ownerId !== user?._id && user?._id !== car.renterId">
+                    <select (change)="getSelectVal($event)" class="car-details__actions-day-select" name="days"
+                        id="days">
+                        <option value="" selected disabled hidden>choose here</option>
+                        <option value="1">1 day</option>
+                        <option value="2">2 days</option>
+                        <option value="3">3 days</option>
+                        <option value="4">4 days</option>
+                        <option value="5">5 days</option>
+                    </select>
+                    <button class="car-details__actions-rent-button" (click)="onRent(userId, carId, selectVal)">
+                        rent
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="car.ownerId !== user?._id && user?._id === car.renterId">
+                    <span class="car-details__actions-text">You are currently renting this car</span>
+                    <button class="car-details__actions-cancel-button">
+                        Cancel rental
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="car.ownerId === user?._id">
+                    <button class="car-details__actions-edit-button">
+                        Edit car offer
+                    </button>
+                    <button class="car-details__actions-delete-button">
+                        Delete car offer
+                    </button>
+                </ng-container>
+
+            </ng-container>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="!car">
+    Loading...
+</div>

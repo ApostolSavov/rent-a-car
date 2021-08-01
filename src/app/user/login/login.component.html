@@ -1,0 +1,39 @@
+<div class="login-form__container">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="onLogin()">
+        <h2 class="login-form__heading">Login Form</h2>
+
+        <div class="login-form__group">
+            <label class="login-form__label" for="email">email</label>
+            <input class="login-form__input" type="email" name="email" id="email" placeholder="ivan@gmail.com"
+                formControlName="email">
+            <div class="login-form__error">
+                <ng-container *ngIf="form.get('email')?.touched && form.get('email')?.errors?.required">
+                    email is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('email')?.touched && form.get('email')?.errors?.email">
+                    email is not valid!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="login-form__group">
+            <label class="login-form__label" for="password">password</label>
+            <input class="login-form__input" type="password" name="password" id="password" placeholder="******"
+                formControlName="password">
+            <div class="login-form__error">
+                <ng-container *ngIf="form.get('password')?.touched && form.get('password')?.errors?.required">
+                    password is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('password')?.touched && form.get('password')?.errors?.minlength">
+                    password must be at least 4 characters!
+                </ng-container>
+            </div>
+        </div>
+
+        <button class="login-form__button" [disabled]="form.invalid">Login</button>
+        <div class="login-form__question">
+            Don't have an account?
+            <a class="login-form__link" routerLink="/user/register"> Register</a>
+        </div>
+    </form>
+</div>
