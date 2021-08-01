@@ -50,8 +50,8 @@
     gap: 3rem;
     position: relative;
 
-    &::before {
-      content: "select the days of rental";
+    &-text {
+      font-size: 2rem;
       position: absolute;
       width: 100%;
       top: 2.5rem;
@@ -60,12 +60,14 @@
     }
   }
 
-  &__actions-rent-button {
+  &__actions-rent-button,
+  &__actions-edit-button,
+  &__actions-delete-button {
     outline: none;
     border: none;
     border-radius: 1rem;
     padding: 1rem 2rem;
-    background-color: rgba($color: #568384, $alpha: 1);
+    background-color: rgba($color: #70aaab, $alpha: 1);
     color: black;
     font-size: 2.4rem;
     font-weight: 600;
@@ -73,9 +75,13 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba($color: #0c0c0c, $alpha: 1);
+      background-color: rgba($color: #191919, $alpha: 1);
       color: white;
     }
+  }
+
+  &__actions-delete-button {
+    background-color: rgba($color: #a27272, $alpha: 1);
   }
 
   &__actions-day-select {
@@ -89,7 +95,7 @@
     transition: all 0.2s;
     cursor: pointer;
 
-    &:target {
+    &:focus {
       padding: 1rem 2rem;
     }
   }

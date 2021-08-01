@@ -58,8 +58,21 @@ export class CarDetailsComponent implements OnInit {
     this.carService.rentCar(userId, carId, days).subscribe((x) => {
       console.log(userId, carId, days);
       console.log(x);
-      this.router.navigate([`/cars/${carId}`]);
+      this.router.navigateByUrl('/user/profile');
     });
+  }
+
+  onDelete(carId: string): void {
+    let action = confirm('Are you sure you want to delete this car offer?');
+    if (action) {
+      this.carService.deleteCar(carId).subscribe((x) => {
+        console.log('redir');
+        console.log(x);
+        this.router.navigateByUrl('/cars');
+      });
+    } else {
+      return;
+    }
   }
 
   ngOnDestroy(): void {

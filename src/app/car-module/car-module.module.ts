@@ -6,7 +6,7 @@ import { AddCarComponent } from './add-car/add-car.component';
 import { EditCarComponent } from './edit-car/edit-car.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,13 @@ import { FormsModule } from '@angular/forms';
     AddCarComponent,
     EditCarComponent,
   ],
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 
   exports: [
     CarListComponent,

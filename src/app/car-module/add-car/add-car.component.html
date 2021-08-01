@@ -1,1 +1,82 @@
-<p>add-car works!</p>
+<div class="add-form__container">
+    <form class="add-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h2 class="add-form__heading">Add Form</h2>
+
+        <div class="add-form__group">
+            <label class="add-form__label" for="brand">brand</label>
+            <select id="brand" class="add-form__select" (change)="changeBrand($event)" formControlName="brand">
+                <option value="" disabled>choose car brand</option>
+                <option *ngFor="let carBrand of brandList" [value]="carBrand">{{carBrand}}</option>
+            </select>
+            <div class="add-form__error">
+                <ng-container *ngIf="form.get('brand')?.touched && form.get('brand')?.errors?.required">
+                    brand is required!
+                </ng-container>
+
+            </div>
+        </div>
+        <div class="add-form__group">
+            <label class="add-form__label" for="model">model</label>
+            <select id="model" class="add-form__select" formControlName="model">
+                <option value="" disabled>choose car model</option>
+                <option *ngFor="let carModel of modelList" [value]="carModel">{{carModel}}</option>
+            </select>
+            <div class="add-form__error">
+                <ng-container *ngIf="form.get('model')?.touched && form.get('model')?.errors?.required">
+                    model is required!
+                </ng-container>
+            </div>
+        </div>
+
+
+        <div class="add-form__group">
+            <label class="add-form__label" for="year">year</label>
+            <input class="add-form__input" type="number" name="year" id="year" placeholder="2010"
+                formControlName="year">
+            <div class="add-form__error">
+                <ng-container *ngIf="form.get('year')?.touched && form.get('year')?.errors?.required">
+                    year is required!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="add-form__group">
+            <label class="add-form__label" for="price">price</label>
+            <input class="add-form__input" type="number" name="price" id="price" placeholder="25"
+                formControlName="price">
+            <div class="add-form__error">
+                <ng-container *ngIf="form.get('price')?.touched && form.get('price')?.errors?.required">
+                    price is required!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="add-form__group">
+            <label class="add-form__label" for="imageUrl">image url</label>
+            <input class="add-form__input" type="text" name="imageUrl" id="imageUrl" placeholder="http://..."
+                formControlName="imageUrl">
+            <div class="add-form__error">
+                <ng-container *ngIf="form.get('imageUrl')?.touched && form.get('imageUrl')?.errors?.required">
+                    imageUrl is required!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="add-form__group">
+            <label class="add-form__label" for="description">description</label>
+            <textarea class="add-form__textarea" name="description" id="description" cols="30" rows="10"
+                placeholder="describe your car here..." formControlName="description"></textarea>
+            <div class="add-form__error">
+                <ng-container *ngIf="form.get('description')?.touched && form.get('description')?.errors?.required">
+                    description is required!
+                </ng-container>
+            </div>
+        </div>
+
+        <button class="add-form__button" [disabled]="form.invalid">Add Car</button>
+        <div class="add-form__question">
+            Need to check your profile first?
+            <a class="add-form__link" routerLink="/user/profile">Click here</a>
+        </div>
+    </form>
+</div>

@@ -31,6 +31,9 @@
         <div class="car-details__actions-container">
             <ng-container *ngIf="isLogged">
                 <ng-container *ngIf="car.ownerId !== user?._id && user?._id !== car.renterId">
+                    <div class="car-details__actions-container-text">
+                        select the days of rental
+                    </div>
                     <select (change)="getSelectVal($event)" class="car-details__actions-day-select" name="days"
                         id="days">
                         <option value="" selected disabled hidden>choose here</option>
@@ -51,10 +54,13 @@
                     </button>
                 </ng-container>
                 <ng-container *ngIf="car.ownerId === user?._id">
+                    <div class="car-details__actions-container-text">
+                        Manage your car offer
+                    </div>
                     <button class="car-details__actions-edit-button">
                         Edit car offer
                     </button>
-                    <button class="car-details__actions-delete-button">
+                    <button class="car-details__actions-delete-button" (click)="onDelete(carId)">
                         Delete car offer
                     </button>
                 </ng-container>
