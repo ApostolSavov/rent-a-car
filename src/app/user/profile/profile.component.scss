@@ -1,5 +1,18 @@
 :host {
   width: 100%;
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(5rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  animation: slideUp 0.5s ease-out;
 }
 
 .profile {
@@ -57,6 +70,11 @@
     max-width: 50rem;
     border-radius: 1rem;
     overflow: hidden;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
   }
 
   &__rented-card-image {
@@ -102,8 +120,55 @@
   }
 
   &__offered {
+    grid-column: 1 / span 2;
     background-color: rgba($color: #dcdcdc, $alpha: 0.8);
     border-radius: 1rem;
-    grid-column: 1 / span 2;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  &__offered-car-heading {
+    flex: 1 1 100%;
+  }
+
+  &__offered-car-card {
+    max-width: 25rem;
+  }
+
+  &__offered-car-card-image-container {
+    max-width: 30rem;
+    max-height: 12.5rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  &__offered-car-card-image {
+    width: 100%;
+    border-radius: 1rem;
+  }
+
+  &__offered-car-card-body {
+    padding: 1rem;
+  }
+
+  &__offered-car-card-details-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__offered-car-card-detail {
+    word-wrap: break-word;
+    word-break: normal;
+    max-width: 30rem;
   }
 }

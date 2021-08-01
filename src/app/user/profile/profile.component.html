@@ -46,8 +46,9 @@
         </div>
         <div class="profile__offered">
             <ng-container *ngIf="user?.offered">
+                <h2 class="profile__offered-car-heading">currently offered cars</h2>
+
                 <div class="profile__offered-car-card" *ngFor="let offeredCar of offered">
-                    <h2 class="profile__offered-car-heading">currently offered cars</h2>
                     <a [routerLink]="['/cars', offeredCar?._id]" class="profile__offered-car-card-link">
                         <div class="profile__offered-car-card-image-container">
                             <img class="profile__offered-car-card-image" src={{offeredCar?.imageUrl}} alt="car">
