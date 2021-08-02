@@ -52,4 +52,11 @@ export class CarService {
       days,
     });
   }
+
+  cancelRent(carId: string, userId: string): Observable<any> {
+    return this.http.put<any>(`${apiURL}/data/${carId}/rental`, {
+      userId,
+      carId,
+    });
+  }
 }

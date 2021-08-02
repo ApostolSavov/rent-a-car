@@ -1,1 +1,90 @@
-<p>edit-car works!</p>
+<div class="edit-form__container">
+    <form class="edit-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h2 class="edit-form__heading">Edit Form</h2>
+
+        <div class="edit-form__group">
+            <label class="edit-form__label" for="brand">brand</label>
+            <select id="brand" class="edit-form__select" (change)="changeBrand($event)" formControlName="brand">
+                <option value="" disabled>choose car brand</option>
+                <option *ngFor="let carBrand of brandList" [value]="carBrand">{{carBrand}}</option>
+            </select>
+            <div class="edit-form__error">
+                <ng-container *ngIf="form.get('brand')?.touched && form.get('brand')?.errors?.required">
+                    brand is required!
+                </ng-container>
+            </div>
+        </div>
+        <div class="edit-form__group">
+            <label class="edit-form__label" for="model">model</label>
+            <select id="model" class="edit-form__select" formControlName="model">
+                <option value="" disabled>choose car model</option>
+                <option *ngFor="let carModel of modelList" [value]="carModel">{{carModel}}</option>
+            </select>
+            <div class="edit-form__error">
+                <ng-container *ngIf="form.get('model')?.touched && form.get('model')?.errors?.required">
+                    model is required!
+                </ng-container>
+            </div>
+        </div>
+
+
+        <div class="edit-form__group">
+            <label class="edit-form__label" for="year">year</label>
+            <input class="edit-form__input" type="number" name="year" id="year" placeholder="2010"
+                formControlName="year">
+            <div class="edit-form__error">
+                <ng-container *ngIf="form.get('year')?.touched && form.get('year')?.errors?.required">
+                    year is required!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="edit-form__group">
+            <label class="edit-form__label" for="price">price</label>
+            <input class="edit-form__input" type="number" name="price" id="price" placeholder="25"
+                formControlName="price">
+            <div class="edit-form__error">
+                <ng-container *ngIf="form.get('price')?.touched && form.get('price')?.errors?.required">
+                    price is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('price')?.touched && form.get('price')?.errors?.min">
+                    price must be at least 1!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="edit-form__group">
+            <label class="edit-form__label" for="imageUrl">image url</label>
+            <input class="edit-form__input" type="text" name="imageUrl" id="imageUrl" placeholder="http://..."
+                formControlName="imageUrl">
+            <div class="edit-form__error">
+                <ng-container *ngIf="form.get('imageUrl')?.touched && form.get('imageUrl')?.errors?.required">
+                    image url is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('imageUrl')?.touched && form.get('imageUrl')?.errors?.pattern">
+                    image url must be valid!
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="edit-form__group">
+            <label class="edit-form__label" for="description">description</label>
+            <textarea class="edit-form__textarea" name="description" id="description" cols="30" rows="10"
+                placeholder="describe your car here..." formControlName="description"></textarea>
+            <div class="edit-form__error">
+                <ng-container *ngIf="form.get('description')?.touched && form.get('description')?.errors?.required">
+                    description is required!
+                </ng-container>
+                <ng-container *ngIf="form.get('description')?.touched && form.get('description')?.errors?.minlength">
+                    description must be at least 5 characters!
+                </ng-container>
+            </div>
+        </div>
+
+        <button class="edit-form__button" [disabled]="form.invalid">Edit Car</button>
+        <div class="edit-form__question">
+            Need to check your profile first?
+            <a class="edit-form__link" routerLink="/user/profile">Click here</a>
+        </div>
+    </form>
+</div>

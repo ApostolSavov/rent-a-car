@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class CarDetailsComponent implements OnInit {
   carId!: string;
   car!: ICar;
-  user: IUser | undefined;
+  user!: IUser;
   selectVal!: number;
 
   private carSub: any;
@@ -73,6 +73,12 @@ export class CarDetailsComponent implements OnInit {
     } else {
       return;
     }
+  }
+
+  onCancel(carId: string, userId: string): void {
+    this.carService.cancelRent(carId, userId).subscribe((x) => {
+      console.log(x);
+    });
   }
 
   ngOnDestroy(): void {

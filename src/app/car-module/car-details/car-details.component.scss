@@ -7,6 +7,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
   gap: 2rem;
+  justify-content: center;
 
   &__container {
     margin: 0 3rem 0;
@@ -38,6 +39,8 @@
   &__info {
     &.span-2-col {
       grid-column: 1 / span 2;
+      word-wrap: break-word;
+      word-break: normal;
     }
   }
 
@@ -49,6 +52,7 @@
     align-items: center;
     gap: 3rem;
     position: relative;
+    padding: 1rem;
 
     &-text {
       font-size: 2rem;
@@ -62,7 +66,8 @@
 
   &__actions-rent-button,
   &__actions-edit-button,
-  &__actions-delete-button {
+  &__actions-delete-button,
+  &__actions-cancel-button {
     outline: none;
     border: none;
     border-radius: 1rem;
