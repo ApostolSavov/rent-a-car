@@ -1,5 +1,5 @@
 <div class="profile__container">
-    <div class="profile">
+    <div class="profile" *ngIf="user">
         <div class="profile__info">
             <p class="profile__info-message">Hello there, {{user?.name}}!</p>
             <hr style="margin: 1rem 0 1rem;">
@@ -74,6 +74,14 @@
                 </div>
             </ng-container>
 
+        </div>
+    </div>
+    <div class="profile__loader" *ngIf="!user">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
 </div>

@@ -1,0 +1,21 @@
+:host {
+  width: 100%;
+}
+
+.not-found {
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__message {
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba($color: #141414, $alpha: 1);
+    background-color: rgba($color: #e4e4e4, $alpha: 0.8);
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+}
