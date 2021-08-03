@@ -1,31 +1,37 @@
 <div class="home">
     <ng-container *ngIf="!isLogged">
-        <p class="home__welcome-message-text">Welcome to rent-a-car!</p>
-        <p class="home__welcome-message-text">Based on your current coordinates
-            (latitude: {{location?.lat.toFixed(0)}}, longitude: {{location?.lon.toFixed(0)}}),</p>
-        <p class="home__welcome-message-text"> you seem to be
-            accessing the site from {{location?.country}}.</p>
-        <p class="home__welcome-message-text">Here's how you can get started with rent-a-car:</p>
+        <div class="home__welcome-message">
+            <p class="home__welcome-message-text">Welcome to rent-a-car!</p>
+            <p class="home__welcome-message-text">Based on your current coordinates
+                (latitude: {{location?.latitude.toFixed(2)}}, longitude: {{location?.longitude.toFixed(2)}}),</p>
+            <p class="home__welcome-message-text"> you seem to be
+                accessing the site from {{location?.city}}, {{location?.country_name}}.</p>
+            <p class="home__welcome-message-text">Here's how you can get started with rent-a-car:</p>
+        </div>
+
     </ng-container>
     <ng-container *ngIf="isLogged">
         <div class="home__welcome-message">
             <p class="home__welcome-message-text">Welcome back!</p>
             <p class="home__welcome-message-text">Based on your current coordinates
-                (latitude: {{location?.lat.toFixed(0)}}, longitude: {{location?.lon.toFixed(0)}}),</p>
+                (latitude: {{location?.latitude.toFixed(2)}}, longitude: {{location?.longitude.toFixed(2)}}),</p>
             <p class="home__welcome-message-text"> you seem to be
-                accessing the site from {{location?.country}}.</p>
+                accessing the site from {{location?.city}}, {{location?.country_name}}.</p>
+
 
         </div>
     </ng-container>
 
     <div class="home__step-container">
         <p class="home__step">
-            Check the available cars and find the one you like
+            Check the available <a class="home__step-link" href="#" routerLink="/cars">cars</a> and find the one you
+            like
         </p>
     </div>
     <div class="home__step-container">
         <p class="home__step">
-            Rent the vehicle with one click (account required)
+            Rent the vehicle with one click ( <a href="#" routerLink="user/register">register</a> or <a href="#"
+                routerLink="/user/login">login</a> )
         </p>
     </div>
     <div class="home__step-container">
