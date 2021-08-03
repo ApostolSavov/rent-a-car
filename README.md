@@ -1,14 +1,14 @@
-# <strong>rent-a-car</strong>
+# 🚗 <strong>rent-a-car</strong> 🚗
 
 Car renting and offering app made for a SoftUni Angular course.
 
 ## Fully deployed and built using the MEAN stack
 
-## [open the app](https://rent-a-car-770jm5bv7-apostolsavov.vercel.app/)
+## 💻 [open the app](https://rent-a-car-770jm5bv7-apostolsavov.vercel.app/) 💻
 
 # <strong>functionality</strong>
 
-!important - only 1 car can be rented at a time by a user, as practicality that user must be the intended driver, as well as to avoid possible abuse of the app.
+**important** - only 1 car can be rented at a time by a user, as practically that user must be the intended driver, as well as to avoid possible abuse of the app.
 
 ## Common parts (guest and user):
 
