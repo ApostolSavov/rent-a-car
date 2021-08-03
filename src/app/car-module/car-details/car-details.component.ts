@@ -49,9 +49,11 @@ export class CarDetailsComponent implements OnInit {
       this.car = x;
     });
 
-    this.userSub = this.userService.getUser(this.userId).subscribe((x) => {
-      this.user = x;
-    });
+    if (this.isLogged) {
+      this.userSub = this.userService.getUser(this.userId).subscribe((x) => {
+        this.user = x;
+      });
+    }
   }
 
   onRent(userId: string, carId: string, days: number): void {
@@ -84,7 +86,8 @@ export class CarDetailsComponent implements OnInit {
   ngOnDestroy(): void {
     this.idSub.unsubscribe();
     this.carSub.unsubscribe();
-    this.userSub.unsubscribe();
-    //this.rentSub.unsubscribe();
+    if (this.userSub) {
+      this.userSub.unsubscribe();
+    }
   }
 }

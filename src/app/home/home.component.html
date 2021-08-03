@@ -1,4 +1,23 @@
 <div class="home">
+    <ng-container *ngIf="!isLogged">
+        <p class="home__welcome-message-text">Welcome to rent-a-car!</p>
+        <p class="home__welcome-message-text">Based on your current coordinates
+            (latitude: {{location?.lat.toFixed(0)}}, longitude: {{location?.lon.toFixed(0)}}),</p>
+        <p class="home__welcome-message-text"> you seem to be
+            accessing the site from {{location?.country}}.</p>
+        <p class="home__welcome-message-text">Here's how you can get started with rent-a-car:</p>
+    </ng-container>
+    <ng-container *ngIf="isLogged">
+        <div class="home__welcome-message">
+            <p class="home__welcome-message-text">Welcome back!</p>
+            <p class="home__welcome-message-text">Based on your current coordinates
+                (latitude: {{location?.lat.toFixed(0)}}, longitude: {{location?.lon.toFixed(0)}}),</p>
+            <p class="home__welcome-message-text"> you seem to be
+                accessing the site from {{location?.country}}.</p>
+
+        </div>
+    </ng-container>
+
     <div class="home__step-container">
         <p class="home__step">
             Check the available cars and find the one you like

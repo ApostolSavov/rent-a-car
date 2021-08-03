@@ -17,6 +17,7 @@ export class UserService {
   get userId(): string {
     return sessionStorage.getItem('userId') || '';
   }
+
   get userInfo(): IUser {
     return this.user;
   }

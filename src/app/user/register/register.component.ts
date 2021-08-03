@@ -43,7 +43,7 @@ export class RegisterComponent {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.router.navigate(['/']);
+          this.router.navigate(['/cars']);
           this.sub.unsubscribe();
         },
         error: (error) => {

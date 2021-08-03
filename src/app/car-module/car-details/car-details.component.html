@@ -54,17 +54,32 @@
                     </button>
                 </ng-container>
                 <ng-container *ngIf="car.ownerId === user?._id">
-                    <div class="car-details__actions-container-text">
-                        Manage your car offer
-                    </div>
-                    <button class="car-details__actions-edit-button" [routerLink]="['/edit-car', car?._id]">
-                        Edit car offer
-                    </button>
-                    <button class="car-details__actions-delete-button" (click)="onDelete(carId)">
-                        Delete car offer
-                    </button>
+                    <ng-container *ngIf="!car.renterId">
+                        <div class="car-details__actions-container-text">
+                            Manage your car offer
+                        </div>
+                        <button class="car-details__actions-edit-button" [routerLink]="['/edit-car', car?._id]">
+                            Edit car offer
+                        </button>
+                        <button class="car-details__actions-delete-button" (click)="onDelete(carId)">
+                            Delete car offer
+                        </button>
+                    </ng-container>
+                    <ng-container *ngIf="car.renterId">
+                        <div style="text-align: center;">
+                            The car you offer is currently rented by another user. You can manage the offer when the
+                            rental
+                            ends.
+                        </div>
+
+                    </ng-container>
+
                 </ng-container>
 
+            </ng-container>
+            <ng-container *ngIf="!isLogged">
+                <a href="#" routerLink="/user/login">login</a> or <a href="#" routerLink="/user/register">register</a>
+                to rent or manage an offer
             </ng-container>
 
         </div>
