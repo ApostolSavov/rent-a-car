@@ -12,7 +12,7 @@ export class UtilService {
   constructor(private http: HttpClient) {}
 
   getLocation(): Observable<object> {
-    return this.http.get<object>('http://ip-api.com/json').pipe(
+    return this.http.get<object>('https://freegeoip.app/json').pipe(
       tap((x) => {
         this.location = x;
       })
