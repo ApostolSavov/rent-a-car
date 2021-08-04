@@ -22,5 +22,35 @@
                 <li class="header__nav-item"><a class="header__nav-link" href="#" (click)="onLogout()">logout</a></li>
             </ul>
         </nav>
+        <nav class="header__nav-burger">
+            <button class="hamburger  hamburger--squeeze" type="button" disabled>
+                <span class="hamburger-box">
+                    <input type="checkbox" class="hamburger-checkbox">
+                    <span class="hamburger-inner"></span>
+                    <ul class="hamburger__menu-list" *ngIf="!isLogged">
+
+                        <li class="hamburger__menu-item"><a class="hamburger__menu-link" href="#"
+                                routerLink="/cars">cars</a></li>
+                        <li class="hamburger__menu-item"><a class="hamburger__menu-link" href="#"
+                                routerLink="/user/register">register</a></li>
+                        <li class="hamburger__menu-item"><a class="hamburger__menu-link" href="#"
+                                routerLink="/user/login">login</a>
+                        </li>
+                    </ul>
+                    <ul class="hamburger__menu-list" *ngIf="isLogged">
+
+                        <li class="hamburger__menu-item"><a class="hamburger__menu-link" href="#"
+                                routerLink="/cars">cars</a></li>
+                        <li class="hamburger__menu-item"><a class="hamburger__menu-link" href="#"
+                                routerLink="/add-car">add</a></li>
+                        <li class="hamburger__menu-item"><a class="hamburger__menu-link" href="#"
+                                routerLink="/user/profile">profile</a>
+                        </li>
+                        <li class="hamburger__menu-item"><a class="hamburger__menu-link" href="#"
+                                (click)="onLogout()">logout</a></li>
+                    </ul>
+                </span>
+            </button>
+        </nav>
     </div>
 </header>
