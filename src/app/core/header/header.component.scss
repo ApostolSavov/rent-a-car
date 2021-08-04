@@ -170,13 +170,14 @@
     list-style-type: none;
     background-color: #658e96;
     position: absolute;
-    top: 6rem;
-    right: -120vw;
+    top: 6.3rem;
+    right: -130vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
-    transition: all 0.4s;
+    width: 120vw;
+    opacity: 0;
+    transition: all 0.5s;
   }
 
   &-item {
@@ -191,7 +192,8 @@
 }
 
 .hamburger-checkbox:checked ~ .hamburger__menu-list {
-  right: -5rem;
+  opacity: 1;
+  right: -10rem;
 }
 
 .hamburger-checkbox:checked + .hamburger-inner {
