@@ -6,7 +6,7 @@ Car renting and offering app made for a SoftUni Angular course.
 
 ## Responsive down to 320px of viewport width and any size above (both phone and desktop friendly)
 
-## 💻 [open the app](https://rent-a-car-770jm5bv7-apostolsavov.vercel.app/) 💻
+## 💻 [open the app](https://rent-a-car-eta.vercel.app/) 💻
 
 # <strong>functionality</strong>
 
