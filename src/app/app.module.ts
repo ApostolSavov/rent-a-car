@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { UserService } from './services/user.service';
 import { UserModule } from './user/user.module';
 import { CarModuleModule } from './car-module/car-module.module';
 import { CarService } from './services/car.service';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent, HomeComponent],
@@ -27,7 +28,11 @@ import { CarService } from './services/car.service';
     UserModule,
     FontAwesomeModule,
   ],
-  providers: [CarService, UserService],
+  providers: [
+    CarService,
+    UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent, FooterComponent, HeaderComponent],
 })
 export class AppModule {}
