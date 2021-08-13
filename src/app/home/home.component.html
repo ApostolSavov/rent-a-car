@@ -7,7 +7,7 @@
             <p class="home__welcome-message-text">Here's how you can get started with rent-a-car:</p>
         </div>
     </ng-container>
-    <ng-container *ngIf="!isLogged">
+    <ng-container *ngIf="!isLogged&&location">
         <div class="home__welcome-message">
             <p class="home__welcome-message-text">Welcome to rent-a-car!</p>
             <p class="home__welcome-message-text">Based on your current coordinates
