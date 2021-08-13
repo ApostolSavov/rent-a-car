@@ -3,10 +3,9 @@
         <div class="home__welcome-message">
             <p class="home__welcome-message-text">Welcome to rent-a-car!</p>
             <p class="home__welcome-message-text">We cannot detect your location currently,</p>
-            <p class="home__welcome-message-text">but you can still check our car offers.</p>
+            <p class="home__welcome-message-text"> you can still check our car offers.</p>
             <p class="home__welcome-message-text">Here's how you can get started with rent-a-car:</p>
         </div>
-
     </ng-container>
     <ng-container *ngIf="!isLogged">
         <div class="home__welcome-message">
@@ -17,17 +16,14 @@
                 accessing the site from {{location?.city}}, {{location?.country_name}}.</p>
             <p class="home__welcome-message-text">Here's how you can get started with rent-a-car:</p>
         </div>
-
     </ng-container>
-    <ng-container *ngIf="isLogged">
+    <ng-container *ngIf="isLogged&&location">
         <div class="home__welcome-message">
             <p class="home__welcome-message-text">Welcome back!</p>
             <p class="home__welcome-message-text">Based on your current coordinates
                 (latitude: {{location?.latitude.toFixed(2)}}, longitude: {{location?.longitude.toFixed(2)}}),</p>
             <p class="home__welcome-message-text"> you seem to be
                 accessing the site from {{location?.city}}, {{location?.country_name}}.</p>
-
-
         </div>
     </ng-container>
 
