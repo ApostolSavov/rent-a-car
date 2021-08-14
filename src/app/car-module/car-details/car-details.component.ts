@@ -79,7 +79,7 @@ export class CarDetailsComponent implements OnInit {
 
   onCancel(carId: string, userId: string): void {
     this.carService.cancelRent(carId, userId).subscribe((x) => {
-      console.log(x);
+      this.router.navigateByUrl('/cars');
     });
   }
 
