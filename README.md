@@ -1,5 +1,7 @@
 # 🚗 <strong>rent-a-car</strong> 🚗
 
+## Backend is currently down (Heroku free tier no longer available...)
+
 Car renting and offering app made for a SoftUni Angular course.
 
 ## Fully deployed and built using the MEAN stack
